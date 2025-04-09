@@ -1,7 +1,8 @@
-from src.utils.quran import QuranUtils
+from src.agents.quran import quran_agent
 
-quran = QuranUtils()
+prompt = input('Enter your prompt or tap q to exit: ')
 
-surahs = quran.get_surahs('en.asad')
+while prompt != 'q':
 
-print(surahs)
+    quran_agent.print_response(prompt)
+    prompt = input('Enter your prompt or tap q to exit: ')
