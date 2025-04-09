@@ -8,6 +8,10 @@
 - **Search for Quranic Verses**: Look up specific Quranic verses by keyword, Surah, or Ayah.
 - **Prayer Times**: Get accurate prayer times for any location on any given day.
 
+<video width="320" height="240" controls>
+  <source src="./demo.mp4" type="video/mp4">
+</video>
+
 ## Installation
 
 To use **MuslimMate**, you can either clone the repository or fork it to make your own changes.
