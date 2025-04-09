@@ -2,6 +2,7 @@ from agno.tools import Toolkit
 from typing import List
 from agno.utils.log import logger
 from src.utils.prayer_times import PrayerTimesUtils
+from datetime import datetime
 
 class PrayerTimesTool(Toolkit):
     def __init__(self):
@@ -24,7 +25,7 @@ class PrayerTimesTool(Toolkit):
         address = " ".join(args[:-1])
         address = address.strip()
 
-        date_str = args[-1] if len(args) > 1 else None
+        date_str = args[-1] if len(args) > 1 else datetime.today().strftime('%Y-%m-%d')
         
         try:
             prayer_times = self.prayer_utils.get_prayer_times_by_address(address, date_str)
@@ -32,7 +33,7 @@ class PrayerTimesTool(Toolkit):
                 return prayer_times["error"]
             
             formatted_times = (
-                f"Prayer times for {address}:\n"
+                f"Prayer times for {address} on {date_str}:\n"
                 f"Fajr: {prayer_times['Fajr']}\n"
                 f"Sunrise: {prayer_times['Sunrise']}\n"
                 f"Dhuhr: {prayer_times['Dhuhr']}\n"
@@ -45,4 +46,3 @@ class PrayerTimesTool(Toolkit):
         except Exception as e:
             logger.warning(f"Error fetching prayer times: {e}")
             return f"Error: {e}"
-
