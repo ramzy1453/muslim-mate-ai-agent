@@ -1,18 +1,15 @@
 from agno.agent import Agent
-from agno.models.openai import OpenAIChat
 from dotenv import load_dotenv
 from src.utils.quran import QuranUtils
 from src.tools.quran import QuranTool
+from src.models import GPT_4O
 
-load_dotenv()
-gpt_4o = OpenAIChat(id="gpt-4o")
-
-editions = QuranUtils.get_editions()
+editions = QuranUtils().get_editions()
 
 quran_agent = Agent(
     name="Quran Agent",
     role="Get Quran",
-    model=gpt_4o,
+    model=GPT_4O,
     instructions=(
         "You are an assistant helping the user find a Quran edition identifier based on their input. "
         "The user will provide a name or partial name of a Quran edition (e.g., 'Fahad', 'Pickthall'). "
