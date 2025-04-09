@@ -4,12 +4,14 @@ from src.utils.quran import QuranUtils
 from src.tools.quran import QuranTool
 from src.models import GPT_4O
 
+llm = GPT_4O
+
 editions = QuranUtils().get_editions()
 
 quran_agent = Agent(
     name="Quran Agent",
-    role="Get Quran",
-    model=GPT_4O,
+    role="Get Quran Ayahs",
+    model=llm,
     instructions=(
         "You are an assistant helping the user find a Quran edition identifier based on their input. "
         "The user will provide a name or partial name of a Quran edition (e.g., 'Fahad', 'Pickthall'). "

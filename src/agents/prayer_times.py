@@ -5,10 +5,12 @@ from src.tools.prayer_times import PrayerTimesTool
 import dateparser
 from src.models import GPT_4O
 
+llm = GPT_4O
+
 prayer_times_agent = Agent(
     name="Prayer Time Agent",
     role="Provide Prayer Times",
-    model=GPT_4O,
+    model=llm,
     instructions=(
         "You are an assistant that helps the user find prayer times for a specific address (city and country) "
         "and date. The user will provide an address (e.g., 'Paris, France') and an optional date (e.g., 'tomorrow'). "
